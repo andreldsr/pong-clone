@@ -1,6 +1,6 @@
-package br.com.olerama.frameexample.entity;
+package br.com.olerama.pongclone.entity;
 
-import br.com.olerama.frameexample.core.Game;
+import br.com.olerama.pongclone.core.Game;
 
 import java.awt.*;
 
@@ -16,7 +16,7 @@ public class Enemy {
     }
 
     public void tick(){
-        x += (Game.ball.x - x - 10);
+        x += (Game.ball.getX() - x - 10) * 0.2;
     }
 
     public void render(Graphics g){

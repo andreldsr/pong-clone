@@ -1,8 +1,8 @@
-package br.com.olerama.frameexample.core;
+package br.com.olerama.pongclone.core;
 
-import br.com.olerama.frameexample.entity.Ball;
-import br.com.olerama.frameexample.entity.Enemy;
-import br.com.olerama.frameexample.entity.Player;
+import br.com.olerama.pongclone.entity.Ball;
+import br.com.olerama.pongclone.entity.Enemy;
+import br.com.olerama.pongclone.entity.Player;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +10,6 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.time.Instant;
 
 public class Game extends Canvas implements Runnable, KeyListener {
     public static final int WIDTH = 160;
@@ -21,8 +20,8 @@ public class Game extends Canvas implements Runnable, KeyListener {
     private static JFrame frame;
     private BufferedImage layer = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 
-    private Player player;
-    private Enemy enemy;
+    public static Player player;
+    public static Enemy enemy;
     public static Ball ball;
 
     public Game(){

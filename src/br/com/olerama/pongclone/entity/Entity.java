@@ -1,4 +1,4 @@
-package br.com.olerama.frameexample.entity;
+package br.com.olerama.pongclone.entity;
 
 import java.awt.*;
 

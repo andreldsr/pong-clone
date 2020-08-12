@@ -1,6 +1,6 @@
-package br.com.olerama.frameexample.entity;
+package br.com.olerama.pongclone.entity;
 
-import br.com.olerama.frameexample.core.Game;
+import br.com.olerama.pongclone.core.Game;
 
 import java.awt.*;
 
