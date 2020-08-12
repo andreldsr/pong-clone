@@ -1,4 +1,4 @@
-package br.com.olerama.pongclone.entity;
+package br.com.andreldsr.pongclone.entity;
 
 import java.awt.*;
 
