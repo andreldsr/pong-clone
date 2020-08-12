@@ -16,7 +16,7 @@ public class Enemy {
     }
 
     public void tick(){
-        x += (Game.ball.getX() - x - 10) * 0.2;
+        x += (Game.ball.getX() - x - 10) * 0.1;
     }
 
     public void render(Graphics g){

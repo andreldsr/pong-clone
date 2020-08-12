@@ -28,10 +28,16 @@ public class Game extends Canvas implements Runnable, KeyListener {
         setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
         configureFrame();
         addKeyListener(this);
+        requestFocus();
+        set();
+    }
+
+    public static void set(){
         player = new Player(WIDTH/2 - 20, HEIGHT - 5);
         enemy = new Enemy(WIDTH/2 - 20, 0);
         ball = new Ball(WIDTH / 2, HEIGHT / 2);
     }
+
     private void configureFrame(){
         frame = new JFrame("Frame Example");
         frame.add(this);

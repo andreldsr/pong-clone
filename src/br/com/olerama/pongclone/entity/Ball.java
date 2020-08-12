@@ -17,10 +17,7 @@ public class Ball{
         this.y = y;
         this.width = 4;
         this.height = 4;
-
-        int angle = new Random().nextInt(120 - 45) + 45 + 1;
-        dx = Math.cos(Math.toRadians(angle));
-        dy = Math.sin(Math.toRadians(angle));
+        calculaDelta();
     }
 
     public void tick() {
@@ -31,34 +28,28 @@ public class Ball{
             dx*=-1;
         }
 
-        if(y >= Game.HEIGHT)
-        {
+        if(y >= Game.HEIGHT){
             //Ponto do inimigo.
             System.out.println("Ponto do inimigo!");
-            new Game();
+            Game.set();
             return;
         }else if(y < 0) {
             //Ponto do jogador.
             System.out.println("Ponto nosso! YAYY!");
-            new Game();
+            Game.set();
             return;
         }
 
         Rectangle bounds = new Rectangle((int)(x+(dx*speed)),(int)(y+(dy*speed)),width,height);
-
         Rectangle boundsPlayer = new Rectangle(Game.player.x,Game.player.y,Game.player.width,Game.player.height);
         Rectangle boundsEnemy = new Rectangle((int)Game.enemy.getX(),(int)Game.enemy.getY(),Game.enemy.getWidth(),Game.enemy.getHeight());
 
         if(bounds.intersects(boundsPlayer)) {
-            int angle = new Random().nextInt(120 - 45) + 45 + 1;
-            dx = Math.cos(Math.toRadians(angle));
-            dy = Math.sin(Math.toRadians(angle));
+            calculaDelta();
             if(dy > 0)
                 dy*=-1;
         }else if(bounds.intersects(boundsEnemy)) {
-            int angle = new Random().nextInt(120 - 45) + 45 + 1;
-            dx = Math.cos(Math.toRadians(angle));
-            dy = Math.sin(Math.toRadians(angle));
+            calculaDelta();
             if(dy < 0)
                 dy*=-1;
         }
@@ -70,17 +61,21 @@ public class Ball{
 
 
     }
-
     public void render(Graphics g) {
-        g.setColor(Color.yellow);
+        g.setColor(Color.PINK);
         g.fillRect((int)x,(int)y,width,height);
     }
 
-    public double getX(){
-        return x;
+    private int getAngle() {
+        return new Random().nextInt(120) + 30 + 1;
     }
 
-    public double getY(){
-        return y;
+    private void calculaDelta() {
+        int angle = getAngle();
+        dx = Math.cos(Math.toRadians(angle));
+        dy = Math.sin(Math.toRadians(angle));
+    }
+    public double getX(){
+        return x;
     }
 }
